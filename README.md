@@ -1,32 +1,65 @@
 # SAP ABAP Vendor Invoice Management (Module Pool)
 
 ## Overview
-This project is a custom SAP ABAP Module Pool application that simulates
-vendor invoice posting using FI accounting principles.
+This project is a custom SAP ABAP **Module Pool (Dialog) application**
+that simulates **non-PO vendor invoice processing** using FI accounting principles.
+
+The application allows finance users to:
+- Create vendor invoices
+- Validate accounting rules
+- Store invoices in custom tables
+- Display invoices in read-only mode using ALV
+
+---
 
 ## Business Scenario
-Finance users can enter non-PO vendor invoices, validate accounting rules,
-store invoices, and display them in a read-only format.
+Standard SAP transactions (MIRO) are not always suitable for
+manual or simplified vendor invoice entry.
+This solution provides a controlled dialog-based alternative.
 
-## Key Features
-- Module Pool (Dialog) programming
-- PBO / PAI screen logic
-- Custom tables (ZVIM_HDR, ZVIM_ITM)
+---
+
+## Key SAP Concepts Demonstrated
+- Module Pool programming
+- Dynpro PBO / PAI logic
+- Subscreens
 - ALV Grid 
-- Header ALV
-- Header + Item Details Adobe Form
+- Select-options in dialog programs
 - Number range handling
-- Validations 
+
+---
 
 ## Screen Flow
-0100 → 0200 → 0300 
+0100 (Create Invoice)
+→ 0200 (Line Items)
+→ 0300 (Invoice List + Print Priview)
 
-## Technologies Used
-- SAP ABAP
-- Module Pool
-- ALV Grid 
-- Subscreens
-- FI concepts
+---
+
+## Data Model
+Custom tables:
+- ZVIM_HDR – Invoice Header
+- ZVIM_ITM – Invoice Line Items
+
+Standard SAP references:
+- LFA1 (Vendor)
+- SKA1 (G/L Accounts)
+- T001 (Company Code)
+
+---
+
+## Advanced Features Implemented
+- Display / Edit modes
+- Dynamic screen control
+- Search help (F4) for vendor selection
+
+---
 
 ## Limitations
-This project simulates FI posting and does not update BKPF/BSEG.
+- No real FI posting to BKPF/BSEG
+- No payment processing
+- No tax calculation
+
+This project focuses on **ABAP dialog programming**, not FI configuration.
+
+---
